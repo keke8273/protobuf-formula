@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+protobuf:
+  version: 3.7.0

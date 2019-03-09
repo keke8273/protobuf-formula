@@ -1,0 +1,8 @@
+{% import_yaml "protobuf/defaults.yaml" as defaults %}
+
+
+{% set protobuf = salt['grains.filter_by']({
+        'Debian':{
+            'os_name':'linux-x86_64'
+        },
+}, grain='os_family', merge=salt['pillar.get']('protobuf:lookup'), default=defaults.protobuf) %}
