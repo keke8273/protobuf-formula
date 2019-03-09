@@ -4,3 +4,4 @@ extract_protobuf:
   archive.extracted:
     - name: /usr/local/bin
     - source: https://github.com/protocolbuffers/protobuf/releases/download/v{{protobuf.version}}/protoc-{{protobuf.version}}-{{protobuf.os_name}}.zip
+    - source_hash: {{protobuf.source_hash}}
