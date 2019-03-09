@@ -5,4 +5,4 @@
         'Debian':{
             'os_name':'linux-x86_64'
         },
-}, grain='os_family', merge=true, default=defaults) %}
+}, grain='os_family', merge=salt['pillar.get']('protobuf:lookup'), default='Debian', base=defaults) %}
