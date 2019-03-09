@@ -5,4 +5,6 @@
         'Debian':{
             'os_name':'linux-x86_64'
         },
-}, grain='os_family', merge=salt['pillar.get']('protobuf:lookup'), default='Debian', base=defaults) %}
+}, grain='os_family', merge=salt['pillar.get']('protobuf:lookup'), default='Debian') %}
+
+{%- set protobuf = salt['pillar.get']('protobuf:lookup', default=defaults, merge=True,) %}
