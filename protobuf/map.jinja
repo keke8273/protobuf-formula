@@ -1,10 +1,12 @@
 {% import_yaml "protobuf/defaults.yaml" as defaults %}
+{% import_yaml 'protobuf/osfamilymap.yaml' as osfamilymap %}
 
-
-{% set protobuf = salt['grains.filter_by']({
-        'Debian':{
-            'os_name':'linux-x86_64'
-        },
-}, grain='os_family', merge=salt['pillar.get']('protobuf:lookup'), default='Debian') %}
-
-{% do salt['protobuf.merge'](protobuf, defaults.protobuf) %}
+{% set protobuf = salt['grains.filter_by'](
+    defaults,
+    merge = salt['grains.filter_by'](
+        osfamilymap,
+        grain='os_family',
+        merge = salt['pillar.get']('protobuf', {}),
+    ),
+    base='protobuf')
+%}
