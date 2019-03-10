@@ -8,7 +8,7 @@ extract_protobuf:
     - enforce_toplevel: False
 
 install_protobuf_bin:
-  file.copy_:
+  file.copy:
     - require: 
       - archive: extract_protobuf
     - name: /usr/local/bin
