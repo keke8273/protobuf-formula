@@ -8,17 +8,17 @@ extract_protobuf:
     - enforce_toplevel: False
 
 install_protobuf_bin:
-  file.copy:
+  file.recurse:
     - require: 
       - archive: extract_protobuf
     - name: /usr/local/bin
-    - source: /tmp/protobuf-{{protobuf.version}}/bin/*
+    - source: salt://protobuf/files/protobuf-{{protobuf.version}}/bin
     - force: True
 
 install_protobuf_include:
-  file.copy_:
+  file.recurse:
     - require:
       - archive: extract_protobuf
     - name: /usr/local/include
-    - source: /tmp/protobuf-{{protobuf.version}}/include/*
+    - source: salt://protobuf/files/protobuf-{{protobuf.version}}/include
     - force: True
