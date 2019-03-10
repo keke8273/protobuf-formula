@@ -16,6 +16,7 @@ install_protobuf_bin:
     - force: True
     - user: {{protobuf.user}}
     - group: {{protobuf.group}}
+    - mode: 0755
 
 install_protobuf_include:
   file.recurse:
