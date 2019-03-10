@@ -4,5 +4,3 @@
 protobuf:
   version: 3.7.0
   source_hash: f6a753bb429c9b1796ae937eeaf96568f884ed52
-  user: keliu
-  group: keliu
