@@ -14,6 +14,8 @@ install_protobuf_bin:
     - name: /usr/local/bin
     - source: salt://protobuf/files/protobuf-{{protobuf.version}}/bin
     - force: True
+    - user: {{protobuf.user}}
+    - group: {{protobuf.group}}
 
 install_protobuf_include:
   file.recurse:
@@ -22,3 +24,5 @@ install_protobuf_include:
     - name: /usr/local/include
     - source: salt://protobuf/files/protobuf-{{protobuf.version}}/include
     - force: True
+    - user: {{protobuf.user}}
+    - group: {{protobuf.group}}
