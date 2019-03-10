@@ -9,12 +9,14 @@ extract_protobuf:
 
 install_protobuf_bin:
   file.recurse:
-    - require: extract_protobuf
+    - require: 
+      - extract_protobuf
     - name: /usr/local/bin
     - source: /tmp/protobuf-{{protobuf.version}}/bin
 
 install_protobuf_include:
   file.recurse:
-    - require: extract_protobuf
+    - require:
+      - extract_protobuf
     - name: /usr/local/include
     - source: /tmp/protobuf-{{protobuf.version}}/include
